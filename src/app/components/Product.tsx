@@ -1,9 +1,17 @@
-// 'use client'
-import { createContext, use, useContext, useMemo, useState } from "react";
+'use client'
+import { createContext, use, useContext, useEffect, useMemo, useState } from "react";
 import { ProductModal } from "./ProductModal";
+import { usePathname } from "next/navigation";
+
 // import { HSOverlay } from "preline/preline";
 // import { Modal } from "./Modal";
-import { HSOverlay } from "preline/preline";
+// import { HSOverlay } from "preline/preline";
+
+declare var HSStaticMethods: {
+  autoInit(collection?: string | string[]): void;
+}
+
+const isBrowser = typeof window !== 'undefined'
 
 export interface IProduct {
     img: string;
@@ -33,9 +41,40 @@ export const Product = ({
         title
       } as any)
 
-      const { element } = HSOverlay.getInstance('#hs-basic-modal-ttt' as any, true) as any;
-      if(element?.open)
-        element.open()
+      // const btn = document.querySelector('#btn-product-modal');
+      // console.log(btn);
+      // (btn as HTMLButtonElement)?.click()
+
+      if (isBrowser) {
+        import('preline/preline').then((overlay: any) => {
+
+          const { HSOverlay } = overlay as any;
+
+          // overlay.HSOverlay('#hs-basic-modal-ttt').open();
+          // const modal = new HSOverlay(document.querySelector('#hs-basic-modal-ttt'))
+          // console.log(modal)
+          // modal.open()
+
+          // console.log(modal?.open());
+          // if(modal?.open)
+          //   modal?.open()
+
+            // const { HSOverlay } = overlay as any;
+            // const modal = new HSOverlay(document.querySelector('#hs-basic-modal-ttt'));
+            // console.log(modal?.open);
+            // if(modal?.open)
+            //   modal?.open()
+
+
+            const comp = HSOverlay?.getInstance('#hs-basic-modal-ttt' as any, true) as any;
+            console.log(comp)
+            console.log(comp?.open)
+            if(comp?.element?.open)
+              comp?.element.open()
+        })
+      }
+
+      
     }}>
     <img className="w-full h-auto rounded-md" src={`${img}`} alt={title || ''} />
     {/* <Modal /> */}
@@ -60,6 +99,18 @@ export const Products = ({data}: { data: IProduct[] }) => {
     [currentProduct]
   );
 
+  const path = usePathname();
+
+  useEffect(() => {
+    import('preline/preline')
+  }, [])
+  
+  useEffect(() => {
+    setTimeout(() => {
+      HSStaticMethods.autoInit()
+    }, 100)
+  }, [path])
+
   return <ProductContext.Provider value={value as any}>
     <div className="max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 mx-auto">
       <ProductModal />
@@ -70,3 +121,5 @@ export const Products = ({data}: { data: IProduct[] }) => {
     </div>
   </ProductContext.Provider>
 }
+
+export default Products;

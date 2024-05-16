@@ -20,10 +20,6 @@ export default function RootLayout( { children }: { children: React.ReactNode } 
         head.js. It can be used to define the document head for SEO, metadata, and other purposes.
         Learn more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-
-      <head >
-
-      </head>
       <body>
         {/* Wrap the children with the AuthContextProvider to provide authentication context */}
         {children}

@@ -9,7 +9,7 @@ export const ProductModal = ({ pid = ''}) => {
     const { img, title } = currentProduct || {} as any;
 
     return <>
-    <button type="button" className="py-3 hidden px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" data-hs-overlay="#hs-basic-modal-ttt">
+    <button type="button" id="btn-product-modal" className="py-3 hidden px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" data-hs-overlay="#hs-basic-modal-ttt">
         Open modal rrrr
     </button>
     <div id="hs-basic-modal-ttt" className="hs-overlay hidden size-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none">

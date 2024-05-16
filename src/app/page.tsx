@@ -2,12 +2,17 @@
 
 import axios from 'axios'
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic'
 
 import { Header } from './header';
 import { Sidebar } from './sidebar';
 import { Banner } from './banner';
 import { IProduct, Products } from './components/Product';
-import { Modal } from './components/Modal';
+
+
+const DynamicProductsList = dynamic(() => import('./components/Product') as any, {
+  ssr: false,
+}) as any
 
 const PRODUCTS_API = `https://products-piet2rlhea-uc.a.run.app/`;
 
@@ -26,7 +31,7 @@ export default function Home({}) {
       <Header />
       <Sidebar />
       <Banner />
-      <Products data={data} />
+      <DynamicProductsList data={data} />
     </>
   )
 }
