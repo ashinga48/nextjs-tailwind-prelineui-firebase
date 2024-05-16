@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-13-firebase-starter",
+  "name": "snsc",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,18 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@preline/overlay": "^2.1.0",
     "@types/node": "20.12.8",
     "@types/react": "18.3.1",
     "@types/react-dom": "18.2.23",
     "autoprefixer": "10.4.19",
+    "axios": "^1.6.8",
     "eslint": "9.1.1",
     "eslint-config-next": "14.2.3",
     "firebase": "^10.11.1",
     "next": "14.2.3",
     "postcss": "8.4.38",
+    "preline": "^2.1.0",
     "react": "18.3.1",
     "react-dom": "18.2.0",
+    "swr": "^2.2.5",
     "tailwindcss": "3.4.3",
     "typescript": "5.4.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7"
   }
 }
