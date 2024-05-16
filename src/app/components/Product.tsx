@@ -3,10 +3,6 @@ import { createContext, use, useContext, useEffect, useMemo, useState } from "re
 import { ProductModal } from "./ProductModal";
 import { usePathname } from "next/navigation";
 
-// import { HSOverlay } from "preline/preline";
-// import { Modal } from "./Modal";
-// import { HSOverlay } from "preline/preline";
-
 declare var HSStaticMethods: {
   autoInit(collection?: string | string[]): void;
 }
@@ -33,38 +29,16 @@ export const Product = ({
     
     return <div className="flex flex-col bg-white border shadow-md rounded-md transition cursor-pointer" 
     onClick={() => {
-      // const modal = new HSOverlay(document.querySelector('#hs-basic-modal') as any);
-      // modal.open();
 
       setCurrentProduct({
         img,
         title
       } as any)
 
-      // const btn = document.querySelector('#btn-product-modal');
-      // console.log(btn);
-      // (btn as HTMLButtonElement)?.click()
-
       if (isBrowser) {
         import('preline/preline').then((overlay: any) => {
 
           const { HSOverlay } = overlay as any;
-
-          // overlay.HSOverlay('#hs-basic-modal-ttt').open();
-          // const modal = new HSOverlay(document.querySelector('#hs-basic-modal-ttt'))
-          // console.log(modal)
-          // modal.open()
-
-          // console.log(modal?.open());
-          // if(modal?.open)
-          //   modal?.open()
-
-            // const { HSOverlay } = overlay as any;
-            // const modal = new HSOverlay(document.querySelector('#hs-basic-modal-ttt'));
-            // console.log(modal?.open);
-            // if(modal?.open)
-            //   modal?.open()
-
 
             const comp = HSOverlay?.getInstance('#hs-basic-modal-ttt' as any, true) as any;
             console.log(comp)
@@ -77,14 +51,6 @@ export const Product = ({
       
     }}>
     <img className="w-full h-auto rounded-md" src={`${img}`} alt={title || ''} />
-    {/* <Modal /> */}
-    {/* <ProductModal pid={pid}/> */}
-    
-    {/* {title && <div className="p-4 md:p-5">
-      <h3 className="text-lg font-bold text-gray-800 dark:text-white">
-        {`${title}`}
-      </h3>
-    </div>} */}
   </div>
 }
   
