@@ -1,6 +1,7 @@
-# Next.js 13 Firebase Starter
+# Next.js 13 + Tailwind CSS + Preline UI + Firebase
 
-This is a starter template for building Next.js 13 applications with Firebase. It provides a solid foundation for developing modern web applications with server-side rendering, authentication, and real-time data synchronization.
+DEMO: https://snsc-b7bc3.web.app/
+
 
 ## Features
 
